@@ -9,11 +9,11 @@ return new class extends Migration {
     {
         Schema::create('ownable_ownerships', function (Blueprint $table) {
             $table->id();
-            $table->string('model_class')->index();
-            $table->string('model_short')->index();
+            $table->string('model_class',200)->index();
+            $table->string('model_short',200)->index();
             $table->unsignedBigInteger('record_id')->index();
             $table->unsignedBigInteger('owner_id')->index();
-            $table->string('owner_class')->index();
+            $table->string('owner_class',200)->index();
             $table->timestamps();
 
             $table->unique(['model_class', 'model_short', 'record_id', 'owner_id', 'owner_class'], 'ownership_unique');
